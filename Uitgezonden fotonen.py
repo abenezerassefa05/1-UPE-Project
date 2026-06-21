@@ -1,0 +1,99 @@
+from manim import *
+
+class Hand_tot_UPE(Scene):
+    
+    
+    
+    
+    def construct(self):
+        bob = SVGMobject(r"C:\Users\Ruben\manimations\UPE-project\hand-svgrepo-com.svg")
+        bob.set_fill(GREEN, opacity=0.8)
+        bob.set_stroke(WHITE)          
+
+        foton = Circle(radius=0.1, fill_color=YELLOW, fill_opacity=0.8)
+        foton_2 = Circle(radius=0.1, fill_color=YELLOW, fill_opacity=0.8)
+        foton_3 = Circle(radius=0.1, fill_color=YELLOW, fill_opacity=0.8)
+        foton_4 = Circle(radius=0.1, fill_color=YELLOW, fill_opacity=0.8)
+        foton_5 = Circle(radius=0.1, fill_color=YELLOW, fill_opacity=0.8)
+        foton_6 = Circle(radius=0.1, fill_color=YELLOW, fill_opacity=0.8)
+        foton_7 = Circle(radius=0.1, fill_color=YELLOW, fill_opacity=0.8)
+        foton_8 = Circle(radius=0.1, fill_color=YELLOW, fill_opacity=0.8)
+
+        drop_links = Square(
+        color=WHITE,
+        fill_color=RED,
+        fill_opacity=0.8,
+        side_length=1.5
+        )
+
+        drop_rechts = Square(
+        color=WHITE,
+        fill_color=RED,
+        fill_opacity=0.8,
+        side_length=1.5
+        )
+
+        
+        label_2_L=Text("UPE-Meter").next_to(drop_links, UP + LEFT * 9)
+        label_2_R=Text("UPE-Meter").next_to(drop_rechts, UP + RIGHT * 9)
+        label_3=Text("Fotonen").next_to(foton, DOWN * 3 + LEFT * 4)
+        label_4=Text("Fotonen").next_to(foton_2, DOWN * 3 + RIGHT * 4)
+
+        lijn_foton_links_1 = Line(UP * 0.1 + LEFT * 0.5, UP * 0.1 + LEFT * 4.25)
+        lijn_foton_rechts_1 = Line(DOWN * 0.2 + RIGHT * 0.5, DOWN * 0.2 + RIGHT * 4.25)
+        lijn_foton_links_2 = Line(UP * 0.2 + LEFT * 0.5, UP * 0.2 + LEFT * 4.25)
+        lijn_foton_rechts_2 = Line(DOWN * 0 + RIGHT * 0.5, DOWN * 0 + RIGHT * 4.25)
+        lijn_foton_links_3 = Line(DOWN * 0.15 + LEFT * 0.5, DOWN * 0.15 + LEFT * 4.25)
+        lijn_foton_rechts_3 = Line(UP * 0.2 + RIGHT * 0.5, UP * 0.2 + RIGHT * 4.25)
+        lijn_foton_links_4 = Line(UP * 0 + LEFT * 0.5, UP * 0 + LEFT * 4.25)
+        lijn_foton_rechts_4 = Line(DOWN * 0.15 + RIGHT * 0.5, DOWN * 0.15 + RIGHT * 4.25)
+
+        title = Text("Uitgezonden fotonen detecteren met UPE-meter")
+        title.to_edge(UP)
+        self.play(Write(title))
+        drop_links.move_to(LEFT * 5)
+        self.play(GrowFromCenter(drop_links))
+        drop_rechts.move_to(RIGHT * 5)
+        self.play(GrowFromCenter(drop_rechts))
+
+        self.play(GrowFromCenter(bob))
+
+        
+      
+
+        self.play(
+        Write(label_2_L),
+        Write(label_2_R),
+        )
+
+        self.play(
+        Write(label_3),
+        Write(label_4)
+        )
+
+        self.play(
+        MoveAlongPath(foton, lijn_foton_links_1),
+        MoveAlongPath(foton_2, lijn_foton_rechts_1),
+        )
+
+        self.play(
+        MoveAlongPath(foton, lijn_foton_links_2),
+        MoveAlongPath(foton_2, lijn_foton_rechts_2),
+        )
+
+        self.play(
+        MoveAlongPath(foton, lijn_foton_links_3),
+        MoveAlongPath(foton_2, lijn_foton_rechts_3),
+        )
+
+        self.play(
+        MoveAlongPath(foton, lijn_foton_links_4),
+        MoveAlongPath(foton_2, lijn_foton_rechts_4),
+        )
+
+        self.play(
+        MoveAlongPath(foton, lijn_foton_links_2),
+        MoveAlongPath(foton_2, lijn_foton_rechts_2),
+        )
+
+        self.wait()
